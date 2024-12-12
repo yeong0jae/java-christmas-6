@@ -1,8 +1,10 @@
 package christmas;
 
 import christmas.domain.Calendar;
+import christmas.domain.Orders;
 import christmas.view.InputView;
 import christmas.view.OutputView;
+import java.util.List;
 
 public class ChristmasController {
 
@@ -22,7 +24,8 @@ public class ChristmasController {
             Calendar.isIn(visitDate);
         });
 
-        
+        List<String> inputOrders = inputView.readOrders();
+        Orders orders = new Orders(inputOrders);
     }
 
     private static void retryUntilValid(Runnable runnable) {
