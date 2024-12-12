@@ -28,6 +28,16 @@ public class OutputView {
         printPresentationMenu(presentationPrice);
         printDiscountInfo(ddayDiscount, weekdaysDiscount, weekendsDiscount, specialDiscount, presentationPrice,
                 noDiscount);
+        printTotalDiscount(ddayDiscount, weekdaysDiscount, weekendsDiscount, specialDiscount, presentationPrice);
+    }
+
+    private void printTotalDiscount(int ddayDiscount, int weekdaysDiscount, int weekendsDiscount, int specialDiscount,
+                                    int presentationPrice) {
+        System.out.println("<총혜택 금액>");
+        int totalDiscount = ddayDiscount + weekdaysDiscount + weekendsDiscount + specialDiscount + presentationPrice;
+        System.out.println(
+                "-" + totalDiscount + "원");
+        System.out.println();
     }
 
     private void printPresentationMenu(int presentationPrice) {
