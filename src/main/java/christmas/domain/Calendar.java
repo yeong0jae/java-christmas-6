@@ -35,4 +35,9 @@ public enum Calendar {
         return valueOf("WEEKDAYS").days.stream()
                 .anyMatch(day -> day == visitDate);
     }
+
+    public static boolean isWeekends(int visitDate) {
+        return valueOf("WEEKENDS").days.stream()
+                .anyMatch(day -> day == visitDate);
+    }
 }

@@ -30,4 +30,10 @@ public class Orders {
                 .mapToInt(Order::isDesert)
                 .sum();
     }
+
+    public int getMainCount() {
+        return orders.stream()
+                .mapToInt(Order::isMain)
+                .sum();
+    }
 }

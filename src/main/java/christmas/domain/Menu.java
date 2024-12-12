@@ -47,4 +47,10 @@ public enum Menu {
                 .stream()
                 .anyMatch(map -> map.containsKey(name));
     }
+
+    public static boolean isMain(String name) {
+        return Menu.valueOf("MAIN").menu
+                .stream()
+                .anyMatch(map -> map.containsKey(name));
+    }
 }

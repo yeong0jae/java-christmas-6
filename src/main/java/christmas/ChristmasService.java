@@ -23,4 +23,12 @@ public class ChristmasService {
         }
         return weekdaysDiscount;
     }
+
+    public int weekendsDiscount(int visitDate, Orders orders) {
+        int weekendsDiscount = 0;
+        if (Calendar.isWeekends(visitDate)) {
+            weekendsDiscount += orders.getMainCount() * 2_023;
+        }
+        return weekendsDiscount;
+    }
 }

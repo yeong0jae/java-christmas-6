@@ -28,4 +28,11 @@ public class Order {
         }
         return 0;
     }
+
+    public int isMain() {
+        if (Menu.isMain(name)) {
+            return 1;
+        }
+        return 0;
+    }
 }
