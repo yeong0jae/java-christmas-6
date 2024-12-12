@@ -40,6 +40,7 @@ public class ChristmasController {
         outputView.printPresentation(presentation);
 
         int dDayDiscount = christmasService.discountDday(visitDate);
+        int weekdaysDiscount = christmasService.weekdaysDiscount(visitDate, orders);
         
     }
 

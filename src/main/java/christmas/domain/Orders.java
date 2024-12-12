@@ -24,4 +24,10 @@ public class Orders {
     public List<Order> getOrders() {
         return orders;
     }
+
+    public int getDesertCount() {
+        return orders.stream()
+                .mapToInt(Order::isDesert)
+                .sum();
+    }
 }

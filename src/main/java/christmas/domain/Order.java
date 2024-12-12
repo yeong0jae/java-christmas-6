@@ -21,4 +21,11 @@ public class Order {
     public int getCount() {
         return count;
     }
+
+    public int isDesert() {
+        if (Menu.isDessert(name)) {
+            return 1;
+        }
+        return 0;
+    }
 }

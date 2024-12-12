@@ -41,4 +41,10 @@ public enum Menu {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 메뉴입니다. 다시 입력해 주세요."));
     }
+
+    public static boolean isDessert(String name) {
+        return Menu.valueOf("DESSERT").menu
+                .stream()
+                .anyMatch(map -> map.containsKey(name));
+    }
 }

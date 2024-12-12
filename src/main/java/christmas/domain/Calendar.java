@@ -30,4 +30,9 @@ public enum Calendar {
             throw new IllegalArgumentException(ErrorMessage.PREFIX + "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
+
+    public static boolean isWeekdays(int visitDate) {
+        return valueOf("WEEKDAYS").days.stream()
+                .anyMatch(day -> day == visitDate);
+    }
 }
