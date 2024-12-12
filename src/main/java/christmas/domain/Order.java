@@ -10,6 +10,11 @@ public class Order {
         this.count = count;
     }
 
+    private void validateCount(int count) {
+
+    }
+
+
     public int getTotalPrice() {
         return Menu.getPrice(name) * count;
     }
