@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.domain.Calendar;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -14,7 +15,10 @@ public class ChristmasController {
     }
 
     public void run() {
+        outputView.printStartMessage();
 
+        int visitDate = inputView.readVisitDate();
+        Calendar.isIn(visitDate);
     }
 
 }

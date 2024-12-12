@@ -23,4 +23,10 @@ public enum Calendar {
     Calendar(List<Integer> days) {
         this.days = days;
     }
+
+    public static void isIn(int visitDate) {
+        if (visitDate < 1 || visitDate > 31) {
+            throw new IllegalArgumentException("유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+        }
+    }
 }
