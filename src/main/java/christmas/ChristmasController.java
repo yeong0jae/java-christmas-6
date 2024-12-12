@@ -5,6 +5,7 @@ import christmas.domain.Orders;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ChristmasController {
 
@@ -19,13 +20,29 @@ public class ChristmasController {
     public void run() {
         outputView.printStartMessage();
 
-        retryUntilValid(() -> {
-            int visitDate = inputView.readVisitDate();
-            Calendar.isIn(visitDate);
+        int visitDate = retryUntilValid(() -> {
+            int date = inputView.readVisitDate();
+            Calendar.isIn(date);
+            return date;
         });
 
-        List<String> inputOrders = inputView.readOrders();
-        Orders orders = new Orders(inputOrders);
+        Orders orders = retryUntilValid(() -> {
+            List<String> inputOrders = inputView.readOrders();
+            return new Orders(inputOrders);
+        });
+
+        int totalPrice = orders.getTotalPrice();
+        
+    }
+
+    private static <T> T retryUntilValid(Supplier<T> supplier) {
+        while (true) {
+            try {
+                return supplier.get();
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private static void retryUntilValid(Runnable runnable) {

@@ -14,4 +14,10 @@ public class Orders {
                     return new Order(map.get(0), Integer.parseInt(map.get(1)));
                 }).toList();
     }
+
+    public int getTotalPrice() {
+        return orders.stream()
+                .mapToInt(Order::getTotalPrice)
+                .sum();
+    }
 }

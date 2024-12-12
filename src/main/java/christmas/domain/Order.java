@@ -9,4 +9,8 @@ public class Order {
         this.name = name;
         this.count = count;
     }
+
+    public int getTotalPrice() {
+        return Menu.getPrice(name) * count;
+    }
 }

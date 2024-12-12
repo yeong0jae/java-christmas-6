@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -32,4 +33,12 @@ public enum Menu {
         this.menu = menu;
     }
 
+    public static int getPrice(String name) {
+        return Arrays.stream(Menu.values())
+                .flatMap(menu -> menu.menu.stream())
+                .filter(map -> map.containsKey(name))
+                .map(map -> map.get(name))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 메뉴입니다. 다시 입력해 주세요."));
+    }
 }
