@@ -5,12 +5,28 @@ import christmas.domain.Orders;
 
 public class ChristmasService {
 
-    public int getPresentation(int totalPrice) {
+    private int presentationCount;
+    private int dDayDiscount;
+    private int weekdaysDiscount;
+    private int weekendsDiscount;
+    private int specialDiscount;
+    private int presentationPrice;
+
+    public void discount(int visitDate, Orders orders, int totalPrice) {
+        presentationCount = getPresentationCount(totalPrice);
+        dDayDiscount = discountDday(visitDate);
+        weekdaysDiscount = weekdaysDiscount(visitDate, orders);
+        weekendsDiscount = weekendsDiscount(visitDate, orders);
+        specialDiscount = specialDiscount(visitDate);
+        presentationPrice = getPresentationPrice();
+    }
+
+    public int getPresentationCount(int totalPrice) {
         return totalPrice / 120_000;
     }
 
-    public int getPresentationPrice(int presentation) {
-        return presentation * 25_000;
+    public int getPresentationPrice() {
+        return presentationCount * 25_000;
     }
 
     public int discountDday(int visitDate) {

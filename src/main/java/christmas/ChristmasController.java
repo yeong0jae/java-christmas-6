@@ -36,15 +36,9 @@ public class ChristmasController {
         int totalPrice = orders.getTotalPrice();
         outputView.printTotalPrice(totalPrice);
 
-        int presentation = christmasService.getPresentation(totalPrice);
-        outputView.printPresentation(presentation);
+        christmasService.discount(visitDate, orders, totalPrice);
 
-        int dDayDiscount = christmasService.discountDday(visitDate);
-        int weekdaysDiscount = christmasService.weekdaysDiscount(visitDate, orders);
-        int weekendsDiscount = christmasService.weekendsDiscount(visitDate, orders);
-        int specialDiscount = christmasService.specialDiscount(visitDate);
-        int presentationPrice = christmasService.getPresentationPrice(presentation);
-
+        outputView.printPresentation(christmasService.getPresentationPrice());
 
     }
 
