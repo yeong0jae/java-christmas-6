@@ -43,7 +43,9 @@ public class ChristmasController {
         int weekdaysDiscount = christmasService.weekdaysDiscount(visitDate, orders);
         int weekendsDiscount = christmasService.weekendsDiscount(visitDate, orders);
         int specialDiscount = christmasService.specialDiscount(visitDate);
-        
+        int presentationPrice = christmasService.getPresentationPrice(presentation);
+
+
     }
 
     private static <T> T retryUntilValid(Supplier<T> supplier) {

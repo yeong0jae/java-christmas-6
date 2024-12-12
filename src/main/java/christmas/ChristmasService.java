@@ -6,7 +6,11 @@ import christmas.domain.Orders;
 public class ChristmasService {
 
     public int getPresentation(int totalPrice) {
-        return totalPrice / 120000;
+        return totalPrice / 120_000;
+    }
+
+    public int getPresentationPrice(int presentation) {
+        return presentation * 25_000;
     }
 
     public int discountDday(int visitDate) {
@@ -38,4 +42,6 @@ public class ChristmasService {
         }
         return 0;
     }
+
+
 }
