@@ -1,5 +1,6 @@
 package christmas;
 
+import christmas.domain.Badge;
 import christmas.domain.Calendar;
 import christmas.domain.Orders;
 
@@ -11,6 +12,8 @@ public class ChristmasService {
     private int weekendsDiscount;
     private int specialDiscount;
     private int presentationPrice;
+    private int totalDiscount;
+    private int paymentPrice;
 
     public void discount(int visitDate, Orders orders, int totalPrice) {
         presentationCount = getPresentationCount(totalPrice);
@@ -19,10 +22,25 @@ public class ChristmasService {
         weekendsDiscount = weekendsDiscount(visitDate, orders);
         specialDiscount = specialDiscount(visitDate);
         presentationPrice = getPresentationPrice();
+        paymentPrice = totalPrice - totalDiscount;
+    }
+
+    private int getTotalDiscount() {
+        totalDiscount = 0;
+        totalDiscount += dDayDiscount;
+        totalDiscount += weekdaysDiscount;
+        totalDiscount += weekendsDiscount;
+        totalDiscount += specialDiscount;
+        totalDiscount += presentationPrice;
+        return totalDiscount;
+    }
+
+    public int getPaymentPrice() {
+        return paymentPrice;
     }
 
     public String getBadge() {
-
+        return Badge.from(totalDiscount).name();
     }
 
     public int getPresentationPrice() {

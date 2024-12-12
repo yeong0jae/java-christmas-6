@@ -39,6 +39,7 @@ public class ChristmasController {
         christmasService.discount(visitDate, orders, totalPrice);
 
         outputView.printPresentation(christmasService.getPresentationPrice());
+        
 
     }
 
