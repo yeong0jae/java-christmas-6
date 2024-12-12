@@ -16,14 +16,16 @@ public class ChristmasService {
     private int paymentPrice;
 
     public void discount(int visitDate, Orders orders, int totalPrice) {
-        presentationCount = getPresentationCount(totalPrice);
-        dDayDiscount = discountDday(visitDate);
-        weekdaysDiscount = weekdaysDiscount(visitDate, orders);
-        weekendsDiscount = weekendsDiscount(visitDate, orders);
-        specialDiscount = specialDiscount(visitDate);
-        presentationPrice = getPresentationPrice();
-        totalDiscount = getTotalDiscount();
-        paymentPrice = totalPrice - totalDiscount + presentationPrice;
+        if (totalPrice > 10000) {
+            presentationCount = getPresentationCount(totalPrice);
+            dDayDiscount = discountDday(visitDate);
+            weekdaysDiscount = weekdaysDiscount(visitDate, orders);
+            weekendsDiscount = weekendsDiscount(visitDate, orders);
+            specialDiscount = specialDiscount(visitDate);
+            presentationPrice = getPresentationPrice();
+            totalDiscount = getTotalDiscount();
+            paymentPrice = totalPrice - totalDiscount + presentationPrice;
+        }
     }
 
     public int getDdayDiscount() {
