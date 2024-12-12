@@ -53,4 +53,10 @@ public enum Menu {
                 .stream()
                 .anyMatch(map -> map.containsKey(name));
     }
+
+    public static boolean isIn(String name) {
+        return Arrays.stream(Menu.values())
+                .flatMap(menu -> menu.menu.stream())
+                .anyMatch(map -> map.containsKey(name));
+    }
 }
