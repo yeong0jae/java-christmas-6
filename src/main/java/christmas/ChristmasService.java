@@ -22,10 +22,27 @@ public class ChristmasService {
         weekendsDiscount = weekendsDiscount(visitDate, orders);
         specialDiscount = specialDiscount(visitDate);
         presentationPrice = getPresentationPrice();
+        totalDiscount = getTotalDiscount();
         paymentPrice = totalPrice - totalDiscount;
     }
 
-    private int getTotalDiscount() {
+    public int getDdayDiscount() {
+        return dDayDiscount;
+    }
+
+    public int getWeekdaysDiscount() {
+        return weekdaysDiscount;
+    }
+
+    public int getWeekendsDiscount() {
+        return weekendsDiscount;
+    }
+
+    public int getSpecialDiscount() {
+        return specialDiscount;
+    }
+
+    public int getTotalDiscount() {
         totalDiscount = 0;
         totalDiscount += dDayDiscount;
         totalDiscount += weekdaysDiscount;
@@ -33,6 +50,10 @@ public class ChristmasService {
         totalDiscount += specialDiscount;
         totalDiscount += presentationPrice;
         return totalDiscount;
+    }
+
+    public boolean isNoDiscount() {
+        return totalDiscount == 0;
     }
 
     public int getPaymentPrice() {
@@ -47,7 +68,7 @@ public class ChristmasService {
         return presentationCount * 25_000;
     }
 
-    private int getPresentationCount(int totalPrice) {
+    public int getPresentationCount(int totalPrice) {
         return totalPrice / 120_000;
     }
 

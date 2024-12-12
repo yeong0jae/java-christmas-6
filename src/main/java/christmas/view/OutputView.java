@@ -23,13 +23,48 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printPresentation(int presentation) {
+    public void printDiscount(int ddayDiscount, int weekdaysDiscount, int weekendsDiscount, int specialDiscount,
+                              int presentationPrice, boolean noDiscount, String badge) {
+        printPresentationMenu(presentationPrice);
+        printDiscountInfo(ddayDiscount, weekdaysDiscount, weekendsDiscount, specialDiscount, presentationPrice,
+                noDiscount);
+    }
+
+    private void printPresentationMenu(int presentationPrice) {
         System.out.println("<증정 메뉴>");
-        if (presentation == 0) {
+        int presentationCount = presentationPrice / 25_000;
+        if (presentationCount < 1) {
             System.out.println("없음");
         } else {
-            System.out.println("샴페인 " + presentation + "개");
+            System.out.println("샴페인 " + presentationCount + "개");
         }
         System.out.println();
     }
+
+    private void printDiscountInfo(int ddayDiscount, int weekdaysDiscount, int weekendsDiscount, int specialDiscount,
+                                   int presentationPrice, boolean noDiscount) {
+        System.out.println("<혜택 내역>");
+        if (!noDiscount) {
+            if (ddayDiscount > 0) {
+                System.out.println("크리스마스 디데이 할인: " + "-" + ddayDiscount + "원");
+            }
+            if (weekdaysDiscount > 0) {
+                System.out.println("평일 할인: " + "-" + weekdaysDiscount + "원");
+            }
+            if (weekendsDiscount > 0) {
+                System.out.println("주말 할인: " + "-" + weekendsDiscount + "원");
+            }
+            if (specialDiscount > 0) {
+                System.out.println("특별 할인: " + "-" + specialDiscount + "원");
+            }
+            if (presentationPrice > 0) {
+                System.out.println("증정 이벤트: " + "-" + presentationPrice + "원");
+            }
+        } else {
+            System.out.println("없음");
+        }
+        System.out.println();
+    }
+
+
 }
