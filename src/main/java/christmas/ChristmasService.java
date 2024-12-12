@@ -19,9 +19,10 @@ public class ChristmasService {
         weekendsDiscount = weekendsDiscount(visitDate, orders);
         specialDiscount = specialDiscount(visitDate);
         presentationPrice = getPresentationPrice();
+
     }
 
-    public int getPresentationCount(int totalPrice) {
+    private int getPresentationCount(int totalPrice) {
         return totalPrice / 120_000;
     }
 
@@ -29,14 +30,14 @@ public class ChristmasService {
         return presentationCount * 25_000;
     }
 
-    public int discountDday(int visitDate) {
+    private int discountDday(int visitDate) {
         if (visitDate >= 1 && visitDate <= 25) {
             return 900 + visitDate * 100;
         }
         return 0;
     }
 
-    public int weekdaysDiscount(int visitDate, Orders orders) {
+    private int weekdaysDiscount(int visitDate, Orders orders) {
         int weekdaysDiscount = 0;
         if (Calendar.isWeekdays(visitDate)) {
             weekdaysDiscount += orders.getDesertCount() * 2_023;
@@ -44,7 +45,7 @@ public class ChristmasService {
         return weekdaysDiscount;
     }
 
-    public int weekendsDiscount(int visitDate, Orders orders) {
+    private int weekendsDiscount(int visitDate, Orders orders) {
         int weekendsDiscount = 0;
         if (Calendar.isWeekends(visitDate)) {
             weekendsDiscount += orders.getMainCount() * 2_023;
@@ -52,7 +53,7 @@ public class ChristmasService {
         return weekendsDiscount;
     }
 
-    public int specialDiscount(int visitDate) {
+    private int specialDiscount(int visitDate) {
         if (Calendar.isSpecial(visitDate)) {
             return 1_000;
         }
