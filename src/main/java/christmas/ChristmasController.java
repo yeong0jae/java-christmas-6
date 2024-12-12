@@ -37,7 +37,7 @@ public class ChristmasController {
         outputView.printTotalPrice(totalPrice);
 
         christmasService.discount(visitDate, orders, totalPrice);
-        
+
         outputView.printDiscount(
                 christmasService.getDdayDiscount(),
                 christmasService.getWeekdaysDiscount(),
@@ -47,6 +47,10 @@ public class ChristmasController {
                 christmasService.isNoDiscount(),
                 christmasService.getBadge()
         );
+
+        outputView.printPaymentPrice(christmasService.getPaymentPrice());
+
+        outputView.printBadge(christmasService.getBadge());
     }
 
     private static <T> T retryUntilValid(Supplier<T> supplier) {

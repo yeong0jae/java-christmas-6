@@ -1,15 +1,17 @@
 package christmas.domain;
 
 public enum Badge {
-    STAR(5_000),
-    TREE(10_000),
-    SANTA(20_000),
-    NONE(0);
+    STAR(5_000, "별"),
+    TREE(10_000, "트리"),
+    SANTA(20_000, "산타"),
+    NONE(0, "없음");
 
     private final int discount;
+    private final String name;
 
-    Badge(int discount) {
+    Badge(int discount, String name) {
         this.discount = discount;
+        this.name = name;
     }
 
     public static Badge from(int totalDiscount) {
@@ -26,5 +28,9 @@ public enum Badge {
             return SANTA;
         }
         return NONE;
+    }
+
+    public String getName() {
+        return name;
     }
 }

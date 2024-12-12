@@ -23,7 +23,7 @@ public class ChristmasService {
         specialDiscount = specialDiscount(visitDate);
         presentationPrice = getPresentationPrice();
         totalDiscount = getTotalDiscount();
-        paymentPrice = totalPrice - totalDiscount;
+        paymentPrice = totalPrice - totalDiscount + presentationPrice;
     }
 
     public int getDdayDiscount() {
@@ -61,7 +61,7 @@ public class ChristmasService {
     }
 
     public String getBadge() {
-        return Badge.from(totalDiscount).name();
+        return Badge.from(totalDiscount).getName();
     }
 
     public int getPresentationPrice() {
