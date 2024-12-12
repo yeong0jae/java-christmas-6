@@ -18,6 +18,17 @@ public class Orders {
                 }).toList();
         validateMaxCount(this.orders);
         validateDuplicateMenu(this.orders);
+        validateOnlyDrink(this.orders);
+    }
+
+    private void validateOnlyDrink(List<Order> orders) {
+        List<String> orderNames = orders.stream()
+                .map(order -> order.getName())
+                .toList();
+        if (orderNames.stream()
+                .allMatch(name -> Menu.isDrink(name))) {
+            throw new IllegalArgumentException(ErrorMessage.PREFIX + "유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
     }
 
     private void validateDuplicateMenu(List<Order> orders) {
