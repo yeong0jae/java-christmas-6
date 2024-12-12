@@ -38,6 +38,9 @@ public class ChristmasController {
 
         int presentation = christmasService.getPresentation(totalPrice);
         outputView.printPresentation(presentation);
+
+        int dDayDiscount = christmasService.discountDday(visitDate);
+        
     }
 
     private static <T> T retryUntilValid(Supplier<T> supplier) {
