@@ -22,4 +22,14 @@ public class OutputView {
         System.out.println(totalPrice + "원");
         System.out.println();
     }
+
+    public void printPresentation(int presentation) {
+        System.out.println("<증정 메뉴>");
+        if (presentation == 0) {
+            System.out.println("없음");
+        } else {
+            System.out.println("샴페인 " + presentation + "개");
+        }
+        System.out.println();
+    }
 }

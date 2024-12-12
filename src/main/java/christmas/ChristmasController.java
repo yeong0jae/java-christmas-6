@@ -11,6 +11,7 @@ public class ChristmasController {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final ChristmasService christmasService = new ChristmasService();
 
     public ChristmasController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -35,6 +36,8 @@ public class ChristmasController {
         int totalPrice = orders.getTotalPrice();
         outputView.printTotalPrice(totalPrice);
 
+        int presentation = christmasService.getPresentation(totalPrice);
+        outputView.printPresentation(presentation);
     }
 
     private static <T> T retryUntilValid(Supplier<T> supplier) {
