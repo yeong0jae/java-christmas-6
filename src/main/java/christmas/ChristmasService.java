@@ -19,15 +19,18 @@ public class ChristmasService {
         weekendsDiscount = weekendsDiscount(visitDate, orders);
         specialDiscount = specialDiscount(visitDate);
         presentationPrice = getPresentationPrice();
-
     }
 
-    private int getPresentationCount(int totalPrice) {
-        return totalPrice / 120_000;
+    public String getBadge() {
+
     }
 
     public int getPresentationPrice() {
         return presentationCount * 25_000;
+    }
+
+    private int getPresentationCount(int totalPrice) {
+        return totalPrice / 120_000;
     }
 
     private int discountDday(int visitDate) {
@@ -59,6 +62,5 @@ public class ChristmasService {
         }
         return 0;
     }
-
 
 }
