@@ -21,6 +21,8 @@ public class ChristmasController {
             int visitDate = inputView.readVisitDate();
             Calendar.isIn(visitDate);
         });
+
+        
     }
 
     private static void retryUntilValid(Runnable runnable) {

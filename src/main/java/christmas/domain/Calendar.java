@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.util.ErrorMessage;
 import java.util.List;
 
 public enum Calendar {
@@ -26,7 +27,7 @@ public enum Calendar {
 
     public static void isIn(int visitDate) {
         if (visitDate < 1 || visitDate > 31) {
-            throw new IllegalArgumentException("유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.PREFIX + "유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
 }
