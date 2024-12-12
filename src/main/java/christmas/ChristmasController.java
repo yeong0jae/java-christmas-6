@@ -30,9 +30,11 @@ public class ChristmasController {
             List<String> inputOrders = inputView.readOrders();
             return new Orders(inputOrders);
         });
+        outputView.printOrders(orders.getOrders());
 
         int totalPrice = orders.getTotalPrice();
-        
+        outputView.printTotalPrice(totalPrice);
+
     }
 
     private static <T> T retryUntilValid(Supplier<T> supplier) {

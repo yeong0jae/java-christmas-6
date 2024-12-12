@@ -20,4 +20,8 @@ public class Orders {
                 .mapToInt(Order::getTotalPrice)
                 .sum();
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
 }

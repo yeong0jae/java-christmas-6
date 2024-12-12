@@ -13,4 +13,12 @@ public class Order {
     public int getTotalPrice() {
         return Menu.getPrice(name) * count;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCount() {
+        return count;
+    }
 }
