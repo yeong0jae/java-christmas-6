@@ -31,4 +31,11 @@ public class ChristmasService {
         }
         return weekendsDiscount;
     }
+
+    public int specialDiscount(int visitDate) {
+        if (Calendar.isSpecial(visitDate)) {
+            return 1_000;
+        }
+        return 0;
+    }
 }

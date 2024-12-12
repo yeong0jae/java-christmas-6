@@ -40,4 +40,9 @@ public enum Calendar {
         return valueOf("WEEKENDS").days.stream()
                 .anyMatch(day -> day == visitDate);
     }
+
+    public static boolean isSpecial(int visitDate) {
+        return valueOf("SPECIAL").days.stream()
+                .anyMatch(day -> day == visitDate);
+    }
 }
