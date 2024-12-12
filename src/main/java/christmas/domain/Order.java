@@ -24,14 +24,14 @@ public class Order {
 
     public int isDesert() {
         if (Menu.isDessert(name)) {
-            return 1;
+            return count;
         }
         return 0;
     }
 
     public int isMain() {
         if (Menu.isMain(name)) {
-            return 1;
+            return count;
         }
         return 0;
     }
